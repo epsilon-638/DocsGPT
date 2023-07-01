@@ -1,6 +1,7 @@
 import argparse
 from langchain.prompts import PromptTemplate
 from agent import agent
+from doc_tools import fetch_docs
 from prompt import prompt_template
 
 class Repl(argparse.Action):
@@ -23,6 +24,10 @@ parser.add_argument(
   "--start-repl",
   action=Repl
 )
+parser.add_argument(
+  "--dry-test",
+  action="store_true"
+)
 parser.add_argument("url", nargs='?')
 parser.add_argument(
   "-q",
@@ -35,4 +40,7 @@ args = parser.parse_args()
 
 if __name__ == "__main__":
   if args.url and args.question:
-    print(agent.run(prompt_template.format(url=args.url, question=args.question)))
+    if args.dry_test:
+      fetch_docs(args.url, args.question)
+    else:
+      print(agent.run(prompt_template.format(url=args.url, question=args.question)))
