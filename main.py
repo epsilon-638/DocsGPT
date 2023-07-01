@@ -19,7 +19,4 @@ prompt_template = PromptTemplate(
 )
 
 if __name__ == "__main__":
-  # url = "https://sre.google/sre-book/production-environment/"
-  # question = "What is Borg?"
-
   print(agent.run(prompt_template.format(url=args.url, question=args.question)))
