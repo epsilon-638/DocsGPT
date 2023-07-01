@@ -23,15 +23,22 @@ def fetch_docs(url: str, question: str) -> str:
 
   lines = text.splitlines()
   striped_lines = list(filter(lambda l: len(l.strip()), lines))
+  relevant_text = filter_relevant_text(striped_lines, question)
 
-  scores = [(question_doc.similarity(nlp(l)), l) for l in striped_lines]
-  top_scores = list(filter(lambda l: l[0] > SCORE_THRESHOLD, scores))
-  top_scores_sorted = sorted(top_scores, key=lambda s: s[0], reverse=True)
-
-  relevant_text = ' '.join([t[1] for t in top_scores_sorted])
   if len(relevant_text) > MAX_TOKENS:
     return relevant_text[:MAX_TOKENS]
   return relevant_text
+
+def filter_relevant_text(lines: list[str], question: str):
+  question_doc = nlp(question)
+  scores = [(question_doc.similarity(nlp(l)), l) for l in lines]
+  top_scores = sorted(
+    list(filter(lambda l: l[0] > SCORE_THRESHOLD, scores)),
+    key=lambda t: t[0],
+    reverse=True,
+  )
+
+  return ' '.join([t[1] for t in top_scores])
 
 doc_tool = StructuredTool.from_function(
   fetch_docs,
