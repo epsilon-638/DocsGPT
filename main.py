@@ -1,12 +1,8 @@
 import argparse
 from langchain.prompts import PromptTemplate
 from agent import agent
+from prompt import prompt_template
 
-prompt = """Fetch the response of the documentation url '{url}' and answer a user question about the contents of the page. Question about the response text: {question}"""
-prompt_template = PromptTemplate(
-  input_variables=["url", "question"],
-  template=prompt,
-)
 class Repl(argparse.Action):
   def __init__(self, nargs=0, **kw):
     super().__init__(nargs=nargs, **kw)
