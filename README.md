@@ -58,5 +58,5 @@ What question do you have?: How does this confusing thing work?
 - [x] Add REPL
 - [ ] Add FastAPI server
 - [ ] Create a UI to interact with the agent
-- [ ] Compare portions of text using document comparison and grab the most relevant bodies of text to the given question.
+- [x] Compare portions of text using document comparison and grab the most relevant bodies of text to the given question.
 - [ ] Store document embeddings and create 'sessions'
