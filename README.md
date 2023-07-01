@@ -35,9 +35,25 @@ Response: Multi-head attention is a type of attention mechanism used in neural n
 
 In this example the GPT Agent is able to fetch and parse the PDF and answer the question pertaining to Multi-Head Attention in the context of this famous Google Research Paper.
 
+## REPL
+
+Start REPL
+```
+python3 main.py --start-repl
+```
+
+REPL
+```
+Enter :q to quit repl
+
+Enter URL: example.com/confusing-documentation
+
+What question do you have?: How does this confusing thing work?
+```
+
 ## TODO
 - [x] Add CLI
-- [ ] Add REPL
+- [x] Add REPL
 - [ ] Add FastAPI server
 - [ ] Create a UI to interact with the agent
 - [ ] Compare portions of text using document comparison and grab the most relevant bodies of text to the given question.
