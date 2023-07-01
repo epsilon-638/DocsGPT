@@ -40,4 +40,5 @@ In this example the GPT Agent is able to fetch and parse the PDF and answer the 
 - [ ] Add REPL
 - [ ] Add FastAPI server
 - [ ] Create a UI to interact with the agent
+- [ ] Compare portions of text using document comparison and grab the most relevant bodies of text to the given question.
 - [ ] Store document embeddings and create 'sessions'
