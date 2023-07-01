@@ -17,6 +17,8 @@ Response: Borg is a cluster management system developed by Google for running la
 ```
 
 ## TODO
+- [ ] Add CLI
+- [ ] Add REPL
 - [ ] Add FastAPI server
 - [ ] Create a UI to interact with the agent
 - [ ] Store document embeddings and create 'sessions'
