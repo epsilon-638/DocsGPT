@@ -23,7 +23,7 @@ class Server(argparse.Action):
   def __init__(self, nargs=0, **kw):
     super().__init__(nargs=nargs, **kw)
   def __call__(self, parser, namespace, values, option_string=None):
-    uvicorn.run("server:app", host="0.0.0.0", port=5000, reload=True)
+    uvicorn.run("server:app", host="127.0.0.1", port=5000)
 
 parser = argparse.ArgumentParser()
 
