@@ -16,7 +16,6 @@ class URLInput(BaseModel):
 
 def fetch_docs(url: str, question: str) -> str:
   """Fetch and return response of documentation using a user supplied url and question, this function requires both a url and a question"""
-  question_doc = nlp(question)
   response = requests.get(url)
   soup = BeautifulSoup(response.text, 'html.parser')
   text = soup.get_text()
