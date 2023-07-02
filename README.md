@@ -6,14 +6,15 @@ Quick insights from docs & references. Given any URL and a question DocsGPT will
 ```
 cd DocsGPT
 export OPENAI_API_KEY="sk-..."
-pip install -r requirements.txt
+chmod +x ./docs-gpt
+./docs-gpt --start-server
 ```
 
 ## Examples
 
 Google SRE Chapter
 ```
-python3 main.py https://sre.google/sre-book/production-environment/ --question "What is Borg?"
+./docs-gpt https://sre.google/sre-book/production-environment/ --question "What is Borg?"
 ```
 
 Output
@@ -27,7 +28,7 @@ In this example the GPT Agent fetches the results of the url https://sre.google/
 
 Attention Is All You Need (PDF)
 ```
-python3 main.py https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf --question "What is multi-head attention?"
+./docs-gpt https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf --question "What is multi-head attention?"
 ```
 
 Output
@@ -41,7 +42,7 @@ In this example the GPT Agent is able to fetch and parse the PDF and answer the 
 
 Start REPL
 ```
-python3 main.py --start-repl
+./docs-gpt --start-repl
 ```
 
 REPL
