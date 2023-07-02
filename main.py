@@ -1,4 +1,5 @@
 import argparse
+import uvicorn
 from langchain.prompts import PromptTemplate
 from agent import agent
 from doc_tools import fetch_docs
@@ -18,11 +19,21 @@ class Repl(argparse.Action):
 
       print(agent.run(prompt_template.format(url=url, question=question)))
 
+class Server(argparse.Action):
+  def __init__(self, nargs=0, **kw):
+    super().__init__(nargs=nargs, **kw)
+  def __call__(self, parser, namespace, values, option_string=None):
+    uvicorn.run("server:app", host="0.0.0.0", port=5000, reload=True)
+
 parser = argparse.ArgumentParser()
 
 parser.add_argument(
   "--start-repl",
   action=Repl
+)
+parser.add_argument(
+  "--start-server",
+  action=Server
 )
 parser.add_argument(
   "--dry-test",
